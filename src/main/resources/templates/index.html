@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Capstone Project">
+    <meta name="author" content="Nohit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Trang Chủ | nohitElectronics
+    </title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,100" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Toastify CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <link th:href="@{/img/logo.png}" rel="apple-touch-icon">
+    <link th:href="@{/img/logo.png}" rel="shortcut icon">
+    <!-- Custom CSS -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/responsive.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/branding :: branding"></div>
+    <div th:replace="fragments/menu :: menu"></div>
+    <div class="slider-area">
+        <div class="zigzag-bottom"></div>
+        <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
+            <div class="slide-bulletz">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="carousel-indicators slide-indicators">
+                                <li data-target="#slide-list" data-slide-to="0" class="active"></li>
+                                <li data-target="#slide-list" data-slide-to="1"></li>
+                                <li data-target="#slide-list" data-slide-to="2"></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="single-slide">
+                        <div class="slide-bg slide-one"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h2>
+                                                    Tổ chức
+                                                </h2>
+                                                <p>
+                                                    Xuất thân từ cửa hàng kinh doanh máy tính được thành lập từ năm
+                                                    2022, nohitElectronics được biết đến là đơn vị bán lẻ uy tín tại
+                                                    Việt Nam. nohitElectronics chuyên kinh doanh các sản phẩm công nghệ
+                                                    thông tin, thiết bị giải trí game, thiết bị văn phòng và thiết bị
+                                                    hi-tech của nhiều nhãn hàng lớn như Dell, Asus, HP, MSI, Lenovo,…
+                                                </p>
+                                                <p>
+                                                    nohitElectronics hướng đến mục tiêu không chỉ là nơi kinh doanh máy
+                                                    tính mà còn là nơi khách hàng có thể tìm thấy mọi tiện ích công nghệ
+                                                    hiện đại và dịch vụ chất lượng cao.
+                                                </p>
+                                                <a th:href="@{/about}" class="readmore">
+                                                    Xem thêm
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="single-slide">
+                        <div class="slide-bg slide-two"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h2>
+                                                    Lĩnh vực
+                                                </h2>
+                                                <p>
+                                                    nohitElectronics cung cấp đầy đủ các sản phẩm máy tính, thiết bị
+                                                    công nghệ thông tin & hi-end cho người dùng gia đình.
+                                                </p>
+                                                <p>
+                                                    Cung cấp giải pháp tích hợp hệ thống công nghệ thông tin cho doanh
+                                                    nghiệp.
+                                                </p>
+                                                <p>
+                                                    Cung cấp giải pháp đặc biệt cho các doanh nghiệp như hội nghị video,
+                                                    màn hình kỹ thuật số, hệ thống quản lý thanh toán,…
+                                                </p>
+                                                <p>
+                                                    Thêm sự lựa chọn, nohitElectronics mở rộng ngành hàng như các thiết
+                                                    bị điện tử tiêu dùng, thiết bị gia dụng và thiết bị thông minh.
+                                                </p>
+                                                <a th:href="@{/about}" class="readmore">
+                                                    Xem thêm
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="single-slide">
+                        <div class="slide-bg slide-three"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h2>
+                                                    Thành tựu
+                                                </h2>
+                                                <p>
+                                                    Bằng những nỗ lực không mệt mỏi, nohitElectronics tự hào là nhà bán
+                                                    lẻ thiết bị công nghệ cao được khách hàng và các đối tác tin tưởng
+                                                    và yêu mến. Đó là giải thưởng và niềm tự hào vô giá của chúng tôi.
+                                                </p>
+                                                <a th:href="@{/about}" class="readmore">
+                                                    Xem thêm
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="promo-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo">
+                        <i class="fa fa-refresh"></i>
+                        <p>
+                            30 Ngày đổi trả
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo">
+                        <i class="fa fa-truck"></i>
+                        <p>
+                            Miễn phí vận chuyển
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo">
+                        <i class="fa fa-lock"></i>
+                        <p>
+                            Thanh toán an toàn
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-promo">
+                        <i class="fa fa-gift"></i>
+                        <p>
+                            Sản phẩm mới
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="latest-product">
+                        <h2 class="section-title">
+                            Sản phẩm mới nhất
+                        </h2>
+                        <div class="product-carousel">
+                            <div th:each="product : ${newProducts}" class="single-product">
+                                <div class="product-f-image">
+                                    <img th:src="@{${'/img/' + product.album + '/0.jpg'}}" alt="">
+                                    <div class="product-hover">
+                                        <a th:href="@{/cart/add/product(id=${product.id},soLuongSanPham=1)}"
+                                            class="add-to-cart-link">
+                                            <i class="fa fa-shopping-cart"></i>Thêm vào giỏ
+                                        </a>
+                                        <a th:href="@{/detail/find(id=${product.id})}" class="view-details-link">
+                                            <i class="fa fa-link"></i>Xem thông tin
+                                        </a>
+                                    </div>
+                                </div>
+                                <h2>
+                                    <a th:text="${product.ten}" th:href="@{/detail/find(id=${product.id})}">
+                                        Name
+                                    </a>
+                                </h2>
+                                <div class="product-carousel-price">
+                                    <ins
+                                        th:text="${#numbers.formatDecimal(product.giaGoc-product.khuyenMai, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                        Discount
+                                    </ins>
+                                    <del
+                                        th:text="${#numbers.formatDecimal(product.giaGoc, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                        Price
+                                    </del>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="brands-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="brand-wrapper">
+                        <h2 class="section-title">
+                            Thương hiệu
+                        </h2>
+                        <div class="brand-list">
+                            <img th:src="@{/img/services-logo-1.jpg}" alt="">
+                            <img th:src="@{/img/services-logo-2.jpg}" alt="">
+                            <img th:src="@{/img/services-logo-3.jpg}" alt="">
+                            <img th:src="@{/img/services-logo-4.jpg}" alt="">
+                            <img th:src="@{/img/services-logo-5.jpg}" alt="">
+                            <img th:src="@{/img/services-logo-6.jpg}" alt="">
+                            <img th:src="@{/img/services-logo-7.jpg}" alt="">
+                            <img th:src="@{/img/services-logo-8.jpg}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-widget-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">
+                            Bán chạy
+                        </h2>
+                        <a th:href="@{/product/sort?sort=topSale}" class="wid-view-more">
+                            Xem thêm
+                        </a>
+                        <div th:each="product : ${topSales}" class="single-wid-product">
+                            <a th:href="@{/detail/find(id=${product.id})}">
+                                <img th:src="@{${'/img/' + product.album + '/1.jpg'}}" alt="" class="product-thumb">
+                            </a>
+                            <h2>
+                                <a th:text="${product.ten}" th:href="@{/detail/find(id=${product.id})}">
+                                    Name
+                                </a>
+                            </h2>
+                            <div class="product-wid-rating star" th:data-star="${product.danhGia}"></div>
+                            <div class="product-wid-price">
+                                <ins
+                                    th:text="${#numbers.formatDecimal(product.giaGoc-product.khuyenMai, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                    Discount
+                                </ins>
+                                <del th:text="${#numbers.formatDecimal(product.giaGoc, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                    Price
+                                </del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">
+                            Khuyến mãi
+                        </h2>
+                        <a th:href="@{/product/sort?sort=discount}" class="wid-view-more">
+                            Xem thêm
+                        </a>
+                        <div th:each="product : ${topDiscounts}" class="single-wid-product">
+                            <a th:href="@{/detail/find(id=${product.id})}">
+                                <img th:src="@{${'/img/' + product.album + '/1.jpg'}}" alt="" class="product-thumb">
+                            </a>
+                            <h2>
+                                <a th:text="${product.ten}" th:href="@{/detail/find(id=${product.id})}">
+                                    Name
+                                </a>
+                            </h2>
+                            <div class="product-wid-rating star" th:data-star="${product.danhGia}"></div>
+                            <div class="product-wid-price">
+                                <ins
+                                    th:text="${#numbers.formatDecimal(product.giaGoc-product.khuyenMai, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                    Discount
+                                </ins>
+                                <del th:text="${#numbers.formatDecimal(product.giaGoc, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                    Price
+                                </del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">
+                            Mới nhất
+                        </h2>
+                        <a th:href="@{/product/sort?sort=newest}" class="wid-view-more">
+                            Xem thêm
+                        </a>
+                        <div th:each="product : ${topNews}" class="single-wid-product">
+                            <a th:href="@{/detail/find(id=${product.id})}">
+                                <img th:src="@{${'/img/' + product.album + '/1.jpg'}}" alt="" class="product-thumb">
+                            </a>
+                            <h2>
+                                <a th:text="${product.ten}" th:href="@{/detail/find(id=${product.id})}">
+                                    Name
+                                </a>
+                            </h2>
+                            <div class="product-wid-rating star" th:data-star="${product.danhGia}"></div>
+                            <div class="product-wid-price">
+                                <ins
+                                    th:text="${#numbers.formatDecimal(product.giaGoc-product.khuyenMai, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                    Discount
+                                </ins>
+                                <del th:text="${#numbers.formatDecimal(product.giaGoc, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                    Price
+                                </del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/detail :: detail"></div>
+    <!-- Latest jQuery form server -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <!-- Bootstrap JS form CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- jQuery sticky menu -->
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <!-- jQuery easing -->
+    <script th:src="@{/js/jquery.easing.1.3.min.js}"></script>
+    <!-- Main script -->
+    <script th:src="@{/js/main.js}"></script>
+    <!-- Show message -->
+    <script th:inline="javascript">
+        var flag = /*[[${flag}]]*/false;
+        var msg = /*[[${msg}]]*/null;
+        if (flag) {
+            Toastify({
+                text: msg,
+                position: "center"
+            }).showToast();
+        }
+    </script>
+    <!-- Average rate -->
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            let arr = document.querySelectorAll('.star');
+            for ($i = 0; $i < arr.length; $i++) {
+                let count = $(arr[$i]).data('star');
+                let html = '';
+                for ($j = 1; $j <= 5; $j++) {
+                    if ($j <= count) {
+                        html += '<i class="fa fa-star" style="margin: 0 2px;"></i>';
+                    } else {
+                        html += '<i class="fa fa-star-o" style="margin: 0 2px;"></i>';
+                    }
+                }
+                $(arr[$i]).append(html)
+            }
+        });
+    </script>
+</body>
+
+</html>

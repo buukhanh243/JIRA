@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Capstone Project">
+    <meta name="author" content="Nohit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${#strings.capitalize(title)+' | nohitElectronics'}">
+        Title | nohitElectronics
+    </title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,100" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Toastify CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <link th:href="@{/img/logo.png}" rel="apple-touch-icon">
+    <link th:href="@{/img/logo.png}" rel="shortcut icon">
+    <!-- Custom CSS -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/responsive.css}" rel="stylesheet">
+    <!-- Rate Style -->
+    <style>
+        .select {
+            color: orange;
+        }
+
+        .rate {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/branding :: branding"></div>
+    <div th:replace="fragments/menu :: menu"></div>
+    <div th:replace="fragments/title :: title"></div>
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div th:replace="fragments/side-bar :: side-bar"></div>
+                <div class="col-md-9">
+                    <div class="product-content-right">
+                        <div class="product-breadcroumb">
+                            <a th:href="@{/category}">
+                                Phân loại
+                            </a>
+                            <a th:href="@{/category/filter(filter=${product.phanLoai})}" th:text="${product.phanLoai}">
+                                Máy tính xách tay
+                            </a>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="product-images">
+                                    <div class="product-main-img">
+                                        <img th:src="@{${'/img/'+product.album+'/0.jpg'}}" alt="">
+                                    </div>
+                                    <div class="product-gallery">
+                                        <img th:src="@{${'/img/'+product.album+'/1.jpg'}}" alt="">
+                                        <img th:src="@{${'/img/'+product.album+'/3.jpg'}}" alt="">
+                                        <img th:src="@{${'/img/'+product.album+'/3.jpg'}}" alt="">
+                                        <img th:src="@{${'/img/'+product.album+'/4.jpg'}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="product-inner">
+                                    <h2 th:text="${product.ten}">
+                                        Name
+                                    </h2>
+                                    <div class="product-inner-price">
+                                        <ins
+                                            th:text="${#numbers.formatDecimal(product.giaGoc-product.khuyenMai, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                            Discount
+                                        </ins>
+                                        <del
+                                            th:text="${#numbers.formatDecimal(product.giaGoc, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                            Price
+                                        </del>
+                                    </div>
+                                    <form th:action="@{/cart/add/product}" method="post" class="cart">
+                                        <div class="quantity">
+                                            <input type="hidden" th:value="${product.id}" name="id" readonly>
+                                            <input type="number" size="4" class="input-text qty text" value="1"
+                                                name="soLuongSanPham" min="1" step="1" th:max="${product.tonKho}">
+                                        </div>
+                                        <button class="add_to_cart_button" type="submit">
+                                            Thêm vào giỏ
+                                        </button>
+                                    </form>
+                                    <div class="product-inner-category">
+                                        <p>
+                                            Phân Loại:
+                                            <a th:href="@{/category/filter(filter=${product.phanLoai})}"
+                                                th:text="${product.phanLoai}">
+                                                Category
+                                            </a>. Thẻ:
+                                            <a href="#" th:text="${product.thuongHieu}">
+                                                Trademark
+                                            </a>.
+                                        </p>
+                                    </div>
+                                    <div role="tabpanel">
+                                        <ul class="product-tab" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                                                    Mô Tả
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                                                    Nhận Xét
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                                <h2>
+                                                    Giới thiệu
+                                                </h2>
+                                                <span style="white-space: pre;" th:utext="${product.moTa}">
+                                                    Description
+                                                </span>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane fade" id="profile">
+                                                <h2>
+                                                    Nhận xét
+                                                </h2>
+                                                <div class="submit-review">
+                                                    <form th:action="@{/detail/rate}" method="post">
+                                                        <input type="hidden" name="idSanPham" th:value="${product.id}"
+                                                            readonly>
+                                                        <input type="hidden" id="danhGia" name="danhGia" value="5">
+                                                        <div class="rating-chooser">
+                                                            <p>
+                                                                Đánh giá
+                                                            </p>
+                                                            <div class="rating-wrap-post rate"
+                                                                th:data-star="${product.danhGia}">
+                                                            </div>
+                                                        </div>
+                                                        <p>
+                                                            <label for="review">
+                                                                Bình luận
+                                                            </label>
+                                                            <textarea name="binhLuan" id="" cols="30" rows="10"
+                                                                placeholder="Nhập ý kiến..."></textarea>
+                                                        </p>
+                                                        <p>
+                                                            <input type="submit" value="Đăng" class="pull-right">
+                                                        </p>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="related-products-wrapper">
+                            <h2 class="related-products-title">
+                                Gợi ý
+                            </h2>
+                            <div class="related-products-carousel">
+                                <div class="single-product" th:each="product : ${topSales}">
+                                    <div class="product-f-image">
+                                        <img th:src="@{${'/img/' + product.album + '/0.jpg'}}" alt="">
+                                        <div class="product-hover">
+                                            <a th:href="@{/cart/add/product(id=${product.id},soLuongSanPham=1)}"
+                                                class="add-to-cart-link">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                Thêm vào giỏ
+                                            </a>
+                                            <a th:href="@{/detail/find(id=${product.id})}" class="view-details-link">
+                                                <i class="fa fa-link"></i>
+                                                Xem thông tin
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <h2>
+                                        <a th:text="${product.ten}" th:href="@{/detail/find(id=${product.id})}">
+                                            Name
+                                        </a>
+                                    </h2>
+                                    <div class="product-carousel-price">
+                                        <ins
+                                            th:text="${#numbers.formatDecimal(product.giaGoc-product.khuyenMai, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                            Discount
+                                        </ins>
+                                        <del
+                                            th:text="${#numbers.formatDecimal(product.giaGoc, 0, 'COMMA', 0, 'POINT')+' ₫'}">
+                                            Price
+                                        </del>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/detail :: detail"></div>
+    <!-- Latest jQuery form server -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <!-- Bootstrap JS form CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- jQuery sticky menu -->
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <!-- jQuery easing -->
+    <script th:src="@{/js/jquery.easing.1.3.min.js}"></script>
+    <!-- Main script -->
+    <script th:src="@{/js/main.js}"></script>
+    <!-- Show message -->
+    <script th:inline="javascript">
+        var flag = /*[[${flag}]]*/ false;
+        var msg = /*[[${msg}]]*/ null;
+        if (flag) {
+            Toastify({ text: msg, position: "center" }).showToast();
+        }
+    </script>
+    <!-- Rate JS -->
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            let count = $('.rate').data('star');
+            let html = '';
+            for ($j = 1; $j <= 5; $j++) {
+                if ($j <= count) {
+                    html += '<i class="fa fa-star-o select" style="margin: 0 2px" id="sao_' + $j + '" data-value="' + $j + '"></i>';
+                } else {
+                    html += '<i class="fa fa-star-o" style="margin: 0 2px" id="sao_' + $j + '" data-value="' + $j + '"></i>';
+                }
+            }
+            $('.rate').append(html)
+        });
+        $(document).on('click', '.fa-star-o', function () {
+            $('#danhGia').val($(this).data('value'));
+            for (let i = 1; i <= 5; i++) {
+                $('#sao_' + i).removeClass("select");
+                if (i <= $(this).data('value')) {
+                    $('#sao_' + i).addClass("select");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

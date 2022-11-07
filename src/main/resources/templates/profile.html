@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Capstone Project">
+    <meta name="author" content="Nohit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${#strings.capitalize(title)+' | nohitElectronics'}">
+        Title | nohitElectronics
+    </title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,100" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Toastify CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+    <!-- Icon -->
+    <link th:href="@{/img/logo.png}" rel="apple-touch-icon">
+    <link th:href="@{/img/logo.png}" rel="shortcut icon">
+    <!-- Custom CSS -->
+    <link th:href="@{/css/owl.carousel.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/responsive.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/branding :: branding"></div>
+    <div th:replace="fragments/menu :: menu"></div>
+    <div th:replace="fragments/title :: title"></div>
+    <div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-content-right">
+                        <div class="woocommerce">
+                            <div id="customer_details" class="col2-set">
+                                <div class="col-1-ex">
+                                    <div class="woocommerce-billing-fields">
+                                        <div class="col-md-12 profile-update">
+                                            <form th:action="@{/profile/info}" method="put">
+                                                <div class="row">
+                                                    <h2 class="sidebar-title">
+                                                        Thông tin cơ bản
+                                                    </h2>
+                                                    <div class="clear"></div>
+                                                    <input type="hidden" th:value="${client.id}" name="id" readonly>
+                                                    <input type="hidden" th:value="${client.email}" name="email"
+                                                        readonly>
+                                                    <input type="hidden" th:value="${client.vaiTro}" name="vaiTro"
+                                                        readonly>
+                                                    <p id="billing_first_name_field"
+                                                        class="form-row form-row-first validate-required">
+                                                        <label class="" for="billing_first_name">Họ tên
+                                                            <abbr title="Nhập vào họ và tên đầy đủ của bạn"
+                                                                class="required">
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input type="text" value="" placeholder="Nhập họ và tên"
+                                                            th:value="${client.hoTen}" id="billing_first_name"
+                                                            name="hoTen" class="input-text" required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_address_1_field"
+                                                        class="form-row form-row-wide address-field validate-required">
+                                                        <label class="" for="billing_address_1">Địa chỉ
+                                                            <abbr
+                                                                title="Nhập vào số nhà và tên đường bạn đang sinh sống"
+                                                                class="required">
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input type="text" value="" placeholder="Nhập địa chỉ"
+                                                            th:value="${client.diaChi}" id="billing_address_1"
+                                                            name="diaChi" class="input-text" required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_city_field"
+                                                        class="form-row form-row-wide address-field validate-required"
+                                                        data-o_class="form-row form-row-wide address-field validate-required">
+                                                        <label class="" for="billing_city">Xã / Phường
+                                                            <abbr title="Nhập vào tên xã hoặc phường bạn đang sinh sống"
+                                                                class="required">
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input type="text" value="" placeholder="Nhập Xã / Phường"
+                                                            th:value="${client.xaPhuong}" id="billing_city"
+                                                            name="xaPhuong" class="input-text" required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_city_field"
+                                                        class="form-row form-row-wide address-field validate-required"
+                                                        data-o_class="form-row form-row-wide address-field validate-required">
+                                                        <label class="" for="billing_city">Huyện / Quận
+                                                            <abbr
+                                                                title="Nhập vào tên huyện hoặc quận bạn đang sinh sống"
+                                                                class="required">
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input type="text" value="" placeholder="Nhập Huyện / Quận"
+                                                            th:value="${client.huyenQuan}" id="billing_city"
+                                                            name="huyenQuan" class="input-text" required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_country_field"
+                                                        class="form-row form-row-wide address-field update_totals_on_change validate-required woocommerce-validated">
+                                                        <label class="" for="billing_country">Tỉnh / Thành
+                                                            <abbr
+                                                                title="Chọn tên tỉnh hoặc thành phố bạn đang sinh sống"
+                                                                class="required">
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <select class="country_to_state country_select"
+                                                            id="billing_country" name="idTinhThanh">
+                                                            <option th:each="province : ${provinces}"
+                                                                th:value="${province.id}" th:text="${province.ten}"
+                                                                th:selected="${province.id}==${client.idTinhThanh}">
+                                                            </option>
+                                                        </select>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_phone_field"
+                                                        class="form-row form-row-last validate-required validate-phone">
+                                                        <label class="" for="billing_phone">Điện thoại
+                                                            <abbr title="Nhập vào số di động của bạn" class="required">
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input type="text" th:value="${client.soDienThoai}"
+                                                            placeholder="Nhập số điện thoại"
+                                                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                            id="billing_phone" name="soDienThoai" class="input-text"
+                                                            required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <div>
+                                                        <button id="payment-button" type="submit"
+                                                            class="btn btn-lg btn-info btn-block">
+                                                            <i class="fa fa-user fa-lg"></i>&nbsp;
+                                                            <span id="payment-button-amount">
+                                                                Cập nhật
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2-ex">
+                                    <div class="woocommerce-shipping-fields">
+                                        <div class="profile-update">
+                                            <form th:action="@{/profile/password}" method="post">
+                                                <div class="row">
+                                                    <h2 class="col-md-12 sidebar-title">
+                                                        Thay đổi mật khẩu
+                                                    </h2>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_first_name_field"
+                                                        class="col-md-12 form-row form-row-first validate-required">
+                                                        <label class="" for="billing_first_name">Mật khẩu cũ
+                                                            <abbr>
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input id="cc-payment" name="oldPassword" type="password"
+                                                            class="form-control" aria-required="true"
+                                                            aria-invalid="false" required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_address_1_field"
+                                                        class="col-md-6 form-row form-row-wide address-field validate-required">
+                                                        <label class="" for="billing_address_1">Mật khẩu mới
+                                                            <abbr>
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input id="cc-payment" name="newPassword" type="password"
+                                                            class="form-control" aria-required="true"
+                                                            aria-invalid="false" required>
+                                                    </p>
+                                                    <p id="billing_city_field"
+                                                        class="col-md-6 form-row form-row-wide address-field validate-required"
+                                                        data-o_class="form-row form-row-wide address-field validate-required">
+                                                        <label class="" for="billing_city">Nhập lại mật khẩu
+                                                            <abbr>
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input id="cc-payment" name="rePassword" type="password"
+                                                            class="form-control" aria-required="true"
+                                                            aria-invalid="false" required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <div class="col-md-12">
+                                                        <button id="payment-button" type="submit"
+                                                            class="btn btn-lg btn-info btn-block">
+                                                            <i class="fa fa-key fa-lg"></i>&nbsp;
+                                                            <span id="payment-button-amount">
+                                                                Cập nhật
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="profile-update">
+                                            <form th:action="@{/profile/card}" method="post">
+                                                <div class="row">
+                                                    <h2 class="col-md-12 sidebar-title">
+                                                        Thông tin thẻ
+                                                    </h2>
+                                                    <div class="clear"></div>
+                                                    <input type="hidden" th:value="${creditCard.id}" name="id" readonly>
+                                                    <p id="billing_first_name_field"
+                                                        class="col-md-12 form-row form-row-first validate-required">
+                                                        <label class="" for="billing_first_name">Name on card
+                                                            <abbr>
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input id="cc-payment" name="nameOnCard" type="text"
+                                                            class="form-control" aria-required="true"
+                                                            aria-invalid="false" th:value="${creditCard.nameOnCard}"
+                                                            required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_first_name_field"
+                                                        class="col-md-12 form-row form-row-first validate-required">
+                                                        <label class="" for="billing_first_name">Card number
+                                                            <abbr>
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input id="cc-payment" name="cardNumber" type="text"
+                                                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                            class="form-control" aria-required="true"
+                                                            aria-invalid="false" th:value="${creditCard.cardNumber}"
+                                                            required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <p id="billing_address_1_field"
+                                                        class="col-md-6 form-row form-row-wide address-field validate-required">
+                                                        <label class="" for="billing_address_1">Expiration
+                                                            <abbr>
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input id="cc-payment" name="expiration" type="text"
+                                                            placeholder="MM / YY" class="form-control"
+                                                            aria-required="true" aria-invalid="false"
+                                                            th:value="${creditCard.expiration}" required>
+                                                    </p>
+                                                    <p id="billing_address_1_field"
+                                                        class="col-md-6 form-row form-row-wide address-field validate-required">
+                                                        <label class="" for="billing_address_1">Security code
+                                                            <abbr>
+                                                                *
+                                                            </abbr>
+                                                        </label>
+                                                        <input id="cc-payment" name="securityCode" type="password"
+                                                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                                            class="form-control" aria-required="true"
+                                                            aria-invalid="false" th:value="${creditCard.securityCode}"
+                                                            required>
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <div class="col-md-12">
+                                                        <button id="payment-button" type="submit"
+                                                            class="btn btn-lg btn-info btn-block">
+                                                            <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                                            <span id="payment-button-amount">
+                                                                Cập nhật
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/detail :: detail"></div>
+    <!-- Latest jQuery form server -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <!-- Bootstrap JS form CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- jQuery sticky menu -->
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <!-- jQuery easing -->
+    <script th:src="@{/js/jquery.easing.1.3.min.js}"></script>
+    <!-- Main script -->
+    <script th:src="@{/js/main.js}"></script>
+    <!-- Show message -->
+    <script th:inline="javascript">
+        var flag = /*[[${flag}]]*/false;
+        var msg = /*[[${msg}]]*/null;
+        if (flag) {
+            Toastify({
+                text: msg,
+                position: "center"
+            }).showToast();
+        }
+    </script>
+</body>
+
+</html>
